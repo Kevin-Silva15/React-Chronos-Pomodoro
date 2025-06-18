@@ -1,10 +1,27 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+
+//uma forma de importar os componentes! - esse podendo dar o nome que quiser ao componente
+import {App} from './App';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <App/>
   </StrictMode>,
 )
+//Pra usar ele, temos que abrir as tags e fechar, assim --> <Nome/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

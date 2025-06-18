@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+//Criando um componente react, pra ser exportado 
+//um componente de react é uma função que utiliza o nome em PascalCase
 
-function App() {
-  const [count, setCount] = useState(0)
+//para importar um css a nivel global e o temas(variaveis de cores e tals)
+import './styles/theme.css';
+import './styles/global.css';
+//Fazendo assim, no global, stylizamos as coisas que terão um mesmo padrão!
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+import { Heading } from './Components/Heading';
+
+
+export function App() {
+    
+    return (
+        <>
+            <Heading> Olá Mundo 01 </Heading>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ex facere cupiditate. Necessitatibus tempore minima a quaerat corporis delectus consequuntur quisquam dolorem, perspiciatis, eum nisi et suscipit, ipsum est quo.</p>
+        </>
+    );
 }
+//uma função normal, mas o retorno vai ser o que vai ser exibido lá na pagina!
+//com isso, temos um componente que retonar um "jsx"
 
-export default App
+//uma maneira de exportar esse compontente, em que o nome pode ser alterado
+// export default App;
+//Maneira de exportar com o nome ja definido
+// export {App};
+//Mas a melhor forma é exporta logo a função, lá em cima
+
+//Maneira certa de reutilizar os componentes, dessa forma aqui -> <Heading/> - ele só vai repetir o mesmo conteudo que ta vindo do Heading
+//Mas usando esse componente, com dados dentro dessa tag, podemos modificar o componentes, apenas em algumas partes, para isso tem que fazer com que o conteudo lá no Heading, pegue o children do elemento, children esse que vamos colocar ali no meio da tag
+// exemplo <Heading> Olá Mundo 01 </Heading>, assim tudo vai ser aplicado no dados que colocamos ali, com isso, podemos reutilizar o componente, mas alterando os dados
+
+
+
+
