@@ -1,0 +1,17 @@
+/* arquivo de escopo de css, pro heading */
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+    color: var(--primary);
+}
+button{
+    color: var(--primary);
+    border: none;
+    background-color: rgba(137, 43, 226, 0);
+}
+.logo{
+    padding: 5vw;
+    
+}

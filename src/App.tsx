@@ -4,20 +4,65 @@
 //para importar um css a nivel global e o temas(variaveis de cores e tals)
 import './styles/theme.css';
 import './styles/global.css';
+
+
+import { Container } from './Components/Container';
+
+import { Logo } from './Components/Logo';
+import { Menu } from './Components/Menu';
+import { CountDown } from './Components/CountDown';
+import { DefaultInput } from './Components/DefaultInput';
+
+
+
+
 //Fazendo assim, no global, stylizamos as coisas que terão um mesmo padrão!
 
-import { Heading } from './Components/Heading';
 
 
 export function App() {
-    
+
     return (
         <>
-            <Heading> Olá Mundo 01 </Heading>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ex facere cupiditate. Necessitatibus tempore minima a quaerat corporis delectus consequuntur quisquam dolorem, perspiciatis, eum nisi et suscipit, ipsum est quo.</p>
+
+            <Container>
+                <Logo></Logo>
+            </Container>
+
+            <Container>
+                <Menu></Menu>
+            </Container>
+
+            <Container>
+                <CountDown/>
+            </Container>
+
+            <Container>
+                 <form className='form' action=''>
+          <div className='formRow'>
+           <DefaultInput id='meuInput' type='text' />
+          </div>
+
+          <div className='formRow'>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+
+          <div className='formRow'>
+            <p>Ciclos</p>
+            <p>0 0 0 0 0 0 0</p>
+          </div>
+
+          <div className='formRow'>
+            <button>Enviar</button>
+          </div>
+        </form>
+            </Container>
+
+
         </>
     );
 }
+
 //uma função normal, mas o retorno vai ser o que vai ser exibido lá na pagina!
 //com isso, temos um componente que retonar um "jsx"
 
@@ -31,6 +76,7 @@ export function App() {
 //Mas usando esse componente, com dados dentro dessa tag, podemos modificar o componentes, apenas em algumas partes, para isso tem que fazer com que o conteudo lá no Heading, pegue o children do elemento, children esse que vamos colocar ali no meio da tag
 // exemplo <Heading> Olá Mundo 01 </Heading>, assim tudo vai ser aplicado no dados que colocamos ali, com isso, podemos reutilizar o componente, mas alterando os dados
 
-
+//Biblioteca de icons do React, é o lucide, colocamos no terminal -> " npm install lucide-react "
+//dai podemos usar os icones como se fossem componente, tipo ali "<TimerIcon/>"
 
 
