@@ -12,6 +12,10 @@ import { Logo } from './Components/Logo';
 import { Menu } from './Components/Menu';
 import { CountDown } from './Components/CountDown';
 import { DefaultInput } from './Components/DefaultInput';
+import { Cycles } from './Components/Cycles';
+import { DefaultButton } from './Components/DefaultButton';
+import { PlayCircleIcon } from 'lucide-react';
+import { Footer } from './Components/Footer';
 
 
 
@@ -22,25 +26,31 @@ import { DefaultInput } from './Components/DefaultInput';
 
 export function App() {
 
-    return (
-        <>
+  return (
+    <>
 
-            <Container>
-                <Logo></Logo>
-            </Container>
+      <Container>
+        <Logo></Logo>
+      </Container>
 
-            <Container>
-                <Menu></Menu>
-            </Container>
+      <Container>
+        <Menu></Menu>
+      </Container>
 
-            <Container>
-                <CountDown/>
-            </Container>
+      <Container>
+        <CountDown />
+      </Container>
 
-            <Container>
-                 <form className='form' action=''>
+      <Container>
+        <form className='form' action=''>
           <div className='formRow'>
-           <DefaultInput id='meuInput' type='text' />
+            <DefaultInput
+              labelText='Task2'
+              id='meuInput'
+              type='text'
+              placeholder='Digite algo'
+
+            />
           </div>
 
           <div className='formRow'>
@@ -48,19 +58,22 @@ export function App() {
           </div>
 
           <div className='formRow'>
-            <p>Ciclos</p>
-            <p>0 0 0 0 0 0 0</p>
+            <Cycles></Cycles>
           </div>
 
           <div className='formRow'>
-            <button>Enviar</button>
+            <DefaultButton icon={<PlayCircleIcon />} color='gren' > </DefaultButton>
           </div>
+
         </form>
-            </Container>
+      </Container>
 
+      <Container>
+        <Footer></Footer>
+      </Container>
 
-        </>
-    );
+    </>
+  );
 }
 
 //uma função normal, mas o retorno vai ser o que vai ser exibido lá na pagina!
