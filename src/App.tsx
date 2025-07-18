@@ -4,10 +4,7 @@
 //para importar um css a nivel global e o temas(variaveis de cores e tals)
 import './styles/theme.css';
 import './styles/global.css';
-
-
 import { Container } from './Components/Container';
-
 import { Logo } from './Components/Logo';
 import { Menu } from './Components/Menu';
 import { CountDown } from './Components/CountDown';
@@ -17,10 +14,6 @@ import { DefaultButton } from './Components/DefaultButton';
 import { PlayCircleIcon } from 'lucide-react';
 import { Footer } from './Components/Footer';
 
-
-
-
-//Fazendo assim, no global, stylizamos as coisas que terão um mesmo padrão!
 
 
 
