@@ -1,8 +1,8 @@
 //agora vamos importar o css 
 
-import { HistoryIcon, HouseIcon, SettingsIcon, SunIcon, } from 'lucide-react';
+import { HistoryIcon, HouseIcon, MoonIcon, SettingsIcon, SunIcon, } from 'lucide-react';
 import styles from './styles.module.css';
-import { useState, useEffect  } from 'react';
+import { useState, useEffect } from 'react';
 
 type AvailableThemes = 'dark' | 'light';
 
@@ -10,7 +10,22 @@ type AvailableThemes = 'dark' | 'light';
 //Criando um componente, que será o header da pagina!
 export function Menu() {
 
-    const [theme, setTheme] = useState<AvailableThemes>('dark');
+    const [theme, setTheme] = useState<AvailableThemes>(() => {
+        const storageTheme = localStorage.getItem('theme') as AvailableThemes || 'dark';
+        return storageTheme;
+    });
+
+    // ()=>{
+    //     const storageTheme = localStorage.getItem('theme') as AvailableThemes || 'dark';
+    //     return storageTheme;
+    // O Que rola nessa linha é, estamos colocando uma função na inicialização, que resgata o valor do local Storage, e depois falando que esse valor vai ser "Availabletheme" ou seja só vai aceitar que seja ou "light" ou "dark", e se não tiver nada no storage ainda ele vai vim como padrão o tema dark!
+
+    const nextThemeIcon = {
+        dark: <SunIcon />,
+        light: <MoonIcon />,
+    }
+// Aqui, estou ligando os temas com os devidos icons, assim, ou vai ser um ou outro, a depender do theme atual!
+//  {nextThemeIcon[theme]} - uso isso aqui pra pegar o retorno, vai resgastar o valor da array theme, que vai ta lá com a condição!
 
     function handleThemeChange(
         event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -24,15 +39,18 @@ export function Menu() {
 
 
     }
-    
-    useEffect(() => {
-            console.log('Theme mudou', theme, Date.now());
-            document.documentElement.setAttribute('data-theme', theme);
 
-            return () => {
-                console.log('Olha, este componente será atualizado');
-            };
-        }, [theme]);
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+
+    }, [theme]);
+
+    // localStorage.setItem('theme', theme); - 
+    // nessa linha estou armazenando o valor do theme atual, para dps regastalo e manter o mesmo valor sé o usuarios dar um f5 na pag
+
+
+
 
     return (
         <nav className={styles.menu}>
@@ -63,7 +81,7 @@ export function Menu() {
                 title='Mudar Tema'
                 onClick={handleThemeChange}
             >
-                <SunIcon />
+                {nextThemeIcon[theme]}
             </a>
 
         </nav>

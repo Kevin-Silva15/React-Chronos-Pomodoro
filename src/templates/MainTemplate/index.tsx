@@ -1,20 +1,36 @@
 //Criando um componente react, pra ser exportado 
 //um componente de react é uma função que utiliza o nome em PascalCase
 
+import { Container } from "../../Components/Container";
+import { Footer } from "../../Components/Footer";
+import { Logo } from "../../Components/Logo";
+import { Menu } from "../../Components/Menu";
+
 //para importar um css a nivel global e o temas(variaveis de cores e tals)
-import './styles/theme.css';
-import './styles/global.css';
-import { Home } from './pages/Home/Index';
+
+type MainTemplateProps = {
+  children: React.ReactNode;
+};
 
 
-
-
-
-export function App() {
+export function MainTemplate({ children }: MainTemplateProps) {
 
   return (
     <>
-<Home/>
+
+      <Container>
+        <Logo></Logo>
+      </Container>
+
+      <Container>
+        <Menu></Menu>
+      </Container>
+
+      {children}
+
+      <Container>
+        <Footer></Footer>
+      </Container>
 
     </>
   );
@@ -35,5 +51,4 @@ export function App() {
 
 //Biblioteca de icons do React, é o lucide, colocamos no terminal -> " npm install lucide-react "
 //dai podemos usar os icones como se fossem componente, tipo ali "<TimerIcon/>"
-
 
