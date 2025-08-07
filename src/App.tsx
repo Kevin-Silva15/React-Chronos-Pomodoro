@@ -8,13 +8,11 @@ import { Home } from './pages/Home/Index';
 
 
 
-
-
 export function App() {
 
   return (
     <>
-<Home/>
+      <Home />
 
     </>
   );
