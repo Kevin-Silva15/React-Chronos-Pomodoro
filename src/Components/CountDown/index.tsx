@@ -1,15 +1,14 @@
 //agora vamos importar o css 
+import type { HomeProps } from '../../pages/Home/Index';
 import styles from './styles.module.css';
 
 
 
 
 //Criando um componente, que será o header da pagina!
-export function CountDown() {
+export function CountDown({state}:HomeProps) {
     return (
-        <div className={styles.container}>
-        00:00
-        </div>
+        <div className={styles.container}>{state.formattedSecondsRemaining}</div>
     );
 }
 

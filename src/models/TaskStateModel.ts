@@ -1,5 +1,9 @@
 import type { TaskModel } from "./TaskModel"
 
+//Esses tipos eu vou precisar usar em diferetes componentes e aplicações
+//vamos fazer isso de outra maneira, sem ser com o "useState" - que foi o que usamos com o tema
+
+// estado -> Componente -> filhos
 
 export type TaskStateModel ={
   tasks: TaskModel[];
