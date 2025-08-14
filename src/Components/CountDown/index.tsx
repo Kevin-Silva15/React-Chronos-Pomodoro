@@ -1,16 +1,21 @@
 //agora vamos importar o css 
-import type { HomeProps } from '../../pages/Home/Index';
+// import type { HomeProps } from '../../pages/Home/Index';
+
+import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import styles from './styles.module.css';
 
 
 
 
 //Criando um componente, que será o header da pagina!
-export function CountDown({state}:HomeProps) {
+export function CountDown() {
+    const {state} = useTaskContext();
     return (
         <div className={styles.container}>{state.formattedSecondsRemaining}</div>
     );
 }
+
+// {state}:HomeProps
 
 //Em Tsx, para colocar uma class, em um elemento, temos que usar " className="" ", com isso fica igual o css
 

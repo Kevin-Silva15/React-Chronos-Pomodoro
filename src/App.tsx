@@ -5,31 +5,57 @@
 import './styles/theme.css';
 import './styles/global.css';
 import { Home } from './pages/Home/Index';
-import { useState } from 'react';
-import type { TaskStateModel } from './models/TaskStateModel';
+import { TaskContextProvider } from './contexts/TaskContext/TaskContextProvider';
 
 
-const initialState: TaskStateModel ={
-  tasks: [],
-  secondsRemaining:0,
-  formattedSecondsRemaining: '00:00',
-  activeTask: null,
-  currentCycle: 0,
-  config:{
-    workTime:25,
-    shortBreakTime:5,
-    longBreakTime:15,
-  },
+
+
+export function App() {
+
+
+  return (
+    <TaskContextProvider>
+      <Home />;
+    </TaskContextProvider>
+
+
+  )
+
+
+
+
+
+
+
+
+
+
+
 }
 
-export function App() {
-const[state, setState] = useState(initialState)
-
-  return <Home state={state} setState={setState} />;
-}
 
 
 
+
+//estavamos usando os "setState" para fazer a interação lá com os tipos mas estava causando um prop driling,
+//prop driling - tipo, esta passando os props de filho pra filhos, mas nem todos estarem usando, exp, 1 - 2 - 3 - dó primeiro eu passo pro segundo, do segundo eu passo por terceiro, mas só quem de fato esta usando é o terceiro, isso é um prop driling
+
+//  mas vamos mudar e usar é passar usando o CONTEXT API para usar o "reduces" assim vamos evitar o proplema
+
+
+// Vamos jogar o state incial dentro do context - para
+// const initialState: TaskStateModel ={
+//   tasks: [],
+//   secondsRemaining:0,
+//   formattedSecondsRemaining: '00:00',
+//   activeTask: null,
+//   currentCycle: 0,
+//   config:{
+//     workTime:25,
+//     shortBreakTime:5,
+//     longBreakTime:15,
+//   },
+// }
 
 
 
