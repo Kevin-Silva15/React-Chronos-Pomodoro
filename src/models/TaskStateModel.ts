@@ -6,7 +6,7 @@ import type { TaskModel } from "./TaskModel"
 // estado -> Componente -> filhos
 
 export type TaskStateModel ={
-  tasks: TaskModel[];
+tasks: TaskModel[];
 secondsRemaining: number;
 formattedSecondsRemaining:string;
 activeTask: TaskModel | null;
