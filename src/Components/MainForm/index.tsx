@@ -1,4 +1,4 @@
-import { PlayCircleIcon } from "lucide-react";
+import { PlayCircleIcon, StopCircleIcon } from "lucide-react";
 import { Cycles } from "../Cycles";
 import { DefaultButton } from "../DefaultButton";
 import { DefaultInput } from "../DefaultInput";
@@ -75,6 +75,17 @@ export function MainForm() {
 
 
   }
+  function handleInterruptTask() {
+    setState(prevState => {
+      return {
+        ...prevState,
+        activeTask: null,
+        secondsRemainin: 0,
+        formattedSecondsRemaining: '00:00'
+      }
+    })
+
+  }
 
   return (
     <form onSubmit={handleCreateNewTask} className='form' action=''>
@@ -85,7 +96,7 @@ export function MainForm() {
           type='text'
           placeholder='Digite algo'
           ref={taskNameInput}
-
+          disabled={!!state.activeTask} // o input vai se desativar, quando a task estiver ativa
         />
       </div>
 
@@ -100,9 +111,29 @@ export function MainForm() {
         </div>
       )}
       <div className='formRow'>
-        <DefaultButton icon={<PlayCircleIcon />} color='gren' > </DefaultButton>
-      </div>
 
+        {/* se não tem uma task ativa, mostre isso */}
+        {!state.activeTask ? (
+          <DefaultButton aria-label='Iniciar nova tarefa'
+            title="Iniciar nova terefa"
+            type="submit"
+            key='This button is to submit'
+            icon={<PlayCircleIcon />}>
+          </DefaultButton>
+        ) : (
+          // se tiver uma task ativa, faça isso
+          <DefaultButton
+            onClick={handleInterruptTask}
+            aria-label='Encerrar tarefa'
+            title="Encerrar terefa"
+            type="button"
+            color="red"
+            key='This is a button to end'
+            icon={<StopCircleIcon />}>
+          </DefaultButton>
+        )}
+
+      </div>
     </form>
   )
 }
