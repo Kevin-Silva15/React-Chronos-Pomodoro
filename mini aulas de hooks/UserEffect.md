@@ -24,9 +24,4 @@ userEffect(()=>{
   console.log('',Date.now)
 }[theme] ); 
 
-Esse aqui, só vai executar a função só quando a dependencia mudar!
-
-com essa vamos conseguir mudar o theme, quando ele for alterado, de dark pra ligth e vice-versa
-
-
 
