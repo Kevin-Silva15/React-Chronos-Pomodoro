@@ -12,6 +12,7 @@ import { Tips } from "../Tips";
 
 
 
+
 //rever a aula 52 e usar o useRef!
 
 export function MainForm() {
@@ -64,6 +65,19 @@ export function MainForm() {
 
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
 
+    // const worker = TimerWorkerManager.getInstance();
+
+
+    // worker.postMessage('FAVOR'); // Sim, posso fazer um favor
+    // worker.postMessage('FALA_OI'); // OK: OI!
+    // worker.postMessage('BLALBLA'); // Não entendi!
+    // worker.postMessage('FECHAR'); // Tá bom, vou fechar
+
+    // worker.onmessage(event=>{
+    //   console.log('PRINCIPAL recebeu:', event.data)
+    //   worker.terminate();
+    // })
+
   }
   function handleInterruptTask() {
     dispatch({ type: TaskActionTypes.INTERRUPT_TASK });
@@ -83,7 +97,7 @@ export function MainForm() {
       </div>
 
       <div className='formRow'>
-        <Tips/>
+        <Tips />
       </div>
 
       {/* Só vai exibir os cycles, se o cycle for maior que zero, isso faz que ao iniciar a pagina, não apareca nenhum cycle, afinal, nenhum começou, ainda! */}
